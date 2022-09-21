@@ -4,15 +4,31 @@ project(rfid)
 
 add_executable(${PROJECT_NAME}
     ./src/main.cpp
+    ./src/GolfMembershipManager.cpp
     ./src/app/Listener/Listener.cpp
+    ./src/app/Controller/Controller.cpp
+    ./src/app/Entity/MembersEntity.cpp
     ./src/hw/rfid/mfrc522.cpp
     ./src/hw/spi/SPI.cpp
+    ./src/hw/Monitor/Monitor.cpp
+    ./src/hw/rfid/CardReader.cpp
+    ./src/app/Service/MembersManageService.cpp
+    ./src/hw/Button/Button.cpp
+    ./src/hw/Button/ManageButton.cpp
+    
 )
 
 target_include_directories(${PROJECT_NAME} PUBLIC
+    ./src
+    ./src/app/Controller
     ./src/app/Listener
+    ./src/app/Entity
+    ./src/app/Model
+    ./src/app/Service
+    ./src/hw/Monitor
     ./src/hw/rfid
     ./src/hw/spi
+    ./src/hw/Button
 )
 
 target_compile_options(${PROJECT_NAME} PUBLIC
